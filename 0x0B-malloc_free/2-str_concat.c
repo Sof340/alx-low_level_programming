@@ -1,11 +1,14 @@
 #include "main.h"
 #include <stdlib.h>
+
 /**
- * free_grid - frees the memory allocate for the grid
- * created by alloc_grid()
- * @grid: grid to free
- * @height: height of the grid
+ * *str_concat - concatenates two strings
+ * @s1: string to concatenate
+ * @s2: other string to concatenate
+ *
+ * Return: pointer to the new string created (Success), or NULL (Error)
  */
+
 char *str_concat(char *s1, char *s2)
 {
 	int i;
