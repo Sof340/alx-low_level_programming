@@ -1,9 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/*this is a simple script that prints it's name
- * argc = 1
- * argv[0] = name of the script
+
+/**
+ * main - prints the name of the program
+ * @argc: number of arguments
+ * @argv: array of arguments
+ * Return: Always 0 (Success)
  */
 
 int main(int argc ,char **argv)
