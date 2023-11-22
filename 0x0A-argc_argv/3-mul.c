@@ -7,11 +7,11 @@
  * Return : 0 always success
  */
 
-int main(int argc,char **argv)
+int main(int argc, char **argv)
 {
 	int b, a;
 	
-	if (argc == 1)
+	if (argc != 3)
 	{
 		printf("Error\n");
 		return (1);

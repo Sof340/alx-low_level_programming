@@ -5,7 +5,7 @@
  * main - prints all arguments including the first one
  * @argc : number of arguments
  * @argv : array of arguments
- * Return : 0 always a succes
+ * Return : Always 0 (Succes)
  */
 
 int main(int argc, char **argv)
