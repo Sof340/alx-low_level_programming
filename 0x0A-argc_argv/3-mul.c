@@ -9,20 +9,17 @@
 
 int main(int argc,char **argv)
 {
-	int count, i, k;
-	count = i = 1;
+	int b, a;
+	
 	if (argc == 1)
 	{
 		printf("Error\n");
 		return (1);
 	}
 
-	for (; i < argc ; i++)
-	{
-		k = atoi(argv[i]);
-		count = count * k;
-	}
-	printf("%d\n",count);
+	a = atoi(argv[1]);
+	b = atoi(argv[2]);
+	printf("%d\n", a * b);
 	return (0);
 }
 
