@@ -2,9 +2,9 @@
 
 /**
  * *malloc_checked - allocates memory using malloc
- * @b : unsigned int representing number of bytes to allocate
+ * @b: unsigned int representing number of bytes to allocate
  *
- * Return: a pointer on succes and 98 on failure.
+ * Return: a pointer on succes and 98 on failure
  */
 
 void *malloc_checked(unsigned int b)
