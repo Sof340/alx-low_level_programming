@@ -1,8 +1,8 @@
 #include "main.h"
 
 /*
- * *string_nconcat - returns a pointer
- * @ @s1: first bytes of the memory
+ * string_nconcat - returns a pointer
+ * @s1: first bytes of the memory
  * @s2: first bytes of the memory
  * @n: first bytes of the memory
  * Return: pointer to the resulting string dests
