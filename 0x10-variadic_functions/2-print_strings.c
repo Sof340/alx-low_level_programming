@@ -2,7 +2,7 @@
 #include "variadic_functions.h"
 
 /**
- * print_numbers - function that prints strings, followed by a new line
+ * print_strings - function that prints strings, followed by a new line
  * @separator : separator between numbers
  * @n : number of numbers
  * Return : Nothing
@@ -30,9 +30,9 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		if (s == NULL)
 		{
 			if (i == (n - 1))
-				printf("(nill)\n");
+				printf("(nil)\n");
 			else
-				printf("(nill)%s", separator);
+				printf("(nil)%s", separator);
 		}
 		else if (i == (n - 1))
 			printf("%s\n", s);
