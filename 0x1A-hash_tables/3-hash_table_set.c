@@ -1,40 +1,62 @@
-#include<stdlib.h>
+#include <stdlib.h>
 #include <string.h>
 #include "hash_tables.h"
 
 /**
- * hash_table_set - function that adds an element to the hash table
- * @ht: pointer to the hash table
- * @key: the key
- * @value: the value associated to the key
- * Return: 1 if succes ,0 otherwise
+ * hash_table_set - Adds an element to the hash table.
+ * @ht: The hash table to add/update the key/value.
+ * @key: The key to add/update.
+ * @value: The value associated with the key.
+ *
+ * Return: 1 if successful, 0 otherwise.
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new;
+	hash_node_t *new_node, *temp;
 	unsigned long int index;
 	
-	if (key == NULL || *key == '\0')
+	if (ht == NULL || key == NULL || *key == '\0')
 		return 0;
-	new = malloc(sizeof(hash_node_t));
-	if (new == NULL)
+	
+	index = key_index((const unsigned char *)key, ht->size);
+	temp = ht->array[index];
+	
+	while (temp != NULL)
+	{
+		if (strcmp(temp->key, key) == 0)
+		{
+			free(temp->value); /* Free previous value */
+			temp->value = strdup(value); /* Duplicate the new value */
+			if (temp->value == NULL)
+				return 0;
+			return 1;
+		}
+		temp = temp->next;
+	}
+	
+	/* Create a new node */
+	new_node = malloc(sizeof(hash_node_t));
+	if (new_node == NULL)
 		return 0;
-	new->key = (char *)key;
-	new->value = (char *)value;
-	index = key_index((unsigned char *)key, ht->size);
 
-	if (ht->array[index] == NULL)
+	new_node->key = strdup(key);
+	if (new_node->key == NULL)
 	{
-		ht->array[index] = new;
-		new->next = NULL;
-	}
-	else if(strcmp(ht->array[index]->key, key) == 0 && strcmp(ht->array[index]->value, value) == 0)
+		free(new_node);
 		return 0;
-	else
-	{
-		new->next = ht->array[index];
-		ht->array[index] = new;
 	}
+	new_node->value = strdup(value);
+	if (new_node->value == NULL)
+	{
+		free(new_node->key);
+		free(new_node);
+		return 0;
+	}
+	
+	/* Add the new node at the beginning of the list */
+	new_node->next = ht->array[index];
+	ht->array[index] = new_node;
+	
 	return 1;
 }
 
