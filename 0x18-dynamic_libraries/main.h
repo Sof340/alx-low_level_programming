@@ -1,6 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+/* Description: contains scripts definitions used for the dynamic lib creation*/
+
 int _putchar(char c);
 int _islower(int c);
 int _isalpha(int c);
@@ -22,5 +24,5 @@ unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
 
-#endif /* DYNAMIC_LIB */
+#endif /* MAIN_H */
 
