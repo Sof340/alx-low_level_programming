@@ -2,6 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int atoi(const char *str) {
-    return atoi(str);
+int _atoi(char *s){
+    return atoi(s);
 }
