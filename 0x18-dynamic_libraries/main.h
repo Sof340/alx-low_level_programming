@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-/* Description: contains scripts definitions used for the dynamic lib creation*/
+/* Description: contains scripts definitions used in the dynamic lib creation*/
 
 int _putchar(char c);
 int _islower(int c);
