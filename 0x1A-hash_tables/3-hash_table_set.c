@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include <stddef.h>
 #include "hash_tables.h"
 /**
@@ -24,16 +25,16 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		current = malloc(sizeof(hash_node_t));
 		if (current == NULL)
 			return (0);
-		current->key = (char *)key;
-		current->value = (char *)value;
+		current->key =  strdup(key);
+		current->value = strdup(value);
 		current->next = NULL;
 		return (1);
 	}
 	new = malloc(sizeof(hash_node_t));
 	if (new == NULL)
 		return (0);
-	new->key = (char *)key;
-	new->value = (char *)value;
+	new->key = strdup(key);
+	new->value = strdup(value);
 	new->next = current;
 	return (1);
 }
