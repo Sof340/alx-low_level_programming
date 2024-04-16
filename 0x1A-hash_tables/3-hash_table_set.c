@@ -14,14 +14,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *current, *new;
 
-	if (key[0] == '\0')
+	if (key[0] == '\0' || ht == NULL || key == NULL)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
 
 	current = ht->array[index];
 	if (current == NULL)
 	{
-		current = (hash_node_t *)malloc(sizeof(hash_node_t));
+		current = malloc(sizeof(hash_node_t));
 		if (current == NULL)
 			return (0);
 		current->key = (char *)key;
@@ -29,7 +29,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		current->next = NULL;
 		return (1);
 	}
-	new = (hash_node_t *)malloc(sizeof(hash_node_t));
+	new = malloc(sizeof(hash_node_t));
 	if (new == NULL)
 		return (0);
 	new->key = (char *)key;
