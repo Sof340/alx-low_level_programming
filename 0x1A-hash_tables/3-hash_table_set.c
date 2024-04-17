@@ -13,7 +13,8 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *new;
+	hash_node_t *new, *current;
+	int collision;
 
 	if (key[0] == '\0' || ht == NULL || key == NULL)
 		return (0);
@@ -29,8 +30,24 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index] = new;
 	else
 	{
-		new->next = ht->array[index];
-		ht->array[index] = new;
+		collision = 0;
+		current = ht->array[index];
+		while (current->next != NULL)
+		{
+			if (current->key == new->key)
+			{
+				current->value = new->value;
+				free(new);
+				collision = 1;
+				break;
+			}
+			current = current->next;
+		}
+		if (collision == 0)
+		{
+			new->next = ht->array[index];
+			ht->array[index] = new;
+		}
 	}
 
 	return (1);
