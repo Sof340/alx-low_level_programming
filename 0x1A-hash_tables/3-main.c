@@ -15,8 +15,8 @@ int main(void)
     int i;
 
     ht = hash_table_create(1024);
-    printf("%d\n",hash_table_set(ht, "hetairas", "cool"));
-    printf("%d\n",hash_table_set(ht, "mentioner", "cool"));
+    printf("%d\n",hash_table_set(ht, "hi", "cfdfdfdfdool"));
+    printf("%d\n",hash_table_set(ht, "hi", "cool"));
     for (i = 0; i < 1024; i++)
     {
 	    if (ht->array[i] == NULL)
@@ -26,7 +26,7 @@ int main(void)
 		    current = ht->array[i];
 		    while (current != NULL)
 		    {
-			    printf("%s\n", current->key);
+			    printf("%s\n", current->value);
 			    current = current->next;
 		    }
 	    }
