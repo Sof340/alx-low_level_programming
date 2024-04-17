@@ -6,7 +6,7 @@
 
 /**
  * hash_table_print - function that prints a hash table.
- * @@ht: pointer to the hash table.
+ * @ht: pointer to the hash table.
  * Return: nothing.
  */
 
@@ -27,11 +27,11 @@ void hash_table_print(const hash_table_t *ht)
 		{
 			if (first == 0)
 			{
-				printf("%s: %s", current->key, current->value);
+				printf("\'%s\': \'%s\'", current->key, current->value);
 				first = 1;
 			}
 			else
-				printf(", %s: %s", current->key, current->value);
+				printf(", \'%s\': \'%s\'", current->key, current->value);
 			current = current->next;
 		}
 	}
