@@ -1,9 +1,11 @@
+# Variables
 CC = gcc
-SRC = main.c school.c
+SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 NAME = school
 RM = rm -f
 
+# Build rules
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -12,15 +14,22 @@ $(NAME): $(OBJ)
 %.o: %.c
 	$(CC) -c -o $@ $<
 
+# Clean rule to remove the executable and all temporary files
 clean:
-	$(RM) *~ \#*\# *.swp .*.swp $(NAME)
+	$(RM) $(NAME)
+	$(RM) *~
+	$(RM) \#*\#
+	$(RM) *.swp
+	$(RM) .*.swp
 
-
+# oclean rule to remove only object files
 oclean:
 	$(RM) $(OBJ)
 
-clean: clean oclean
+# fclean rule to remove the executable, object files, and all temporary files
+fclean: clean oclean
 
+# re rule to force recompilation of all source files
 re: fclean all
 
 .PHONY: all clean oclean fclean re
